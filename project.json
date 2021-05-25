@@ -1,0 +1,65 @@
+{
+  "name": "AuditSearchBot",
+  "description": "A search bot to automate the process of running a search through a file or a website",
+  "main": "Main(Autosaved).xaml",
+  "dependencies": {
+    "UiPath.ComplexScenarios.Activities": "[1.1.3]",
+    "UiPath.Excel.Activities": "[2.9.5]",
+    "UiPath.Mail.Activities": "[1.9.5]",
+    "UiPath.Presentations.Activities": "[1.0.2]",
+    "UiPath.System.Activities": "[20.10.3]",
+    "UiPath.UIAutomation.Activities": "[20.10.9]",
+    "UiPath.Word.Activities": "[1.5.3]"
+  },
+  "webServices": [],
+  "entitiesStores": [],
+  "schemaVersion": "4.0",
+  "studioVersion": "20.10.5.0",
+  "projectVersion": "1.0.3",
+  "runtimeOptions": {
+    "exceptionHandlerWorkflow": "GlobalHandlerX.xaml",
+    "autoDispose": false,
+    "isPausable": true,
+    "requiresUserInteraction": true,
+    "supportsPersistence": false,
+    "excludedLoggedData": [
+      "Private:*",
+      "*password*"
+    ],
+    "executionType": "Workflow",
+    "readyForPiP": false,
+    "startsInPiP": false
+  },
+  "designOptions": {
+    "projectProfile": "Business",
+    "outputType": "Process",
+    "libraryOptions": {
+      "includeOriginalXaml": false,
+      "privateWorkflows": []
+    },
+    "processOptions": {
+      "ignoredFiles": []
+    },
+    "fileInfoCollection": [],
+    "modernBehavior": true
+  },
+  "expressionLanguage": "VisualBasic",
+  "entryPoints": [
+    {
+      "filePath": "Main.xaml",
+      "uniqueId": "4e303cb7-61c6-41a2-a31b-54d79eb9d6ee",
+      "input": [],
+      "output": []
+    },
+    {
+      "filePath": "Main(Autosaved).xaml",
+      "uniqueId": "019105dc-b3a7-44e2-a919-b995e033a331",
+      "input": [],
+      "output": []
+    }
+  ],
+  "isTemplate": false,
+  "templateProjectData": {},
+  "publishData": {},
+  "targetFramework": "Legacy"
+}
