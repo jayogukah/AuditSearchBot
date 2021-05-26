@@ -79,7 +79,7 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="880,6031" sap2010:WorkflowViewState.IdRef="Sequence_22">
+  <Sequence DisplayName="AuditSearchBot" sap:VirtualizedContainerService.HintSize="880,6031" sap2010:WorkflowViewState.IdRef="Sequence_22">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="repeat" />
     </Sequence.Variables>
