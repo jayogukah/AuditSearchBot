@@ -42,7 +42,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="35">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="70">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -78,9 +78,10 @@
       <AssemblyReference>UiPath.Platform</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="This is a bot that runs a search based on an inputted keyword from the user.&#xD;&#xA;It lets the user choose a search medium:&#xD;&#xA;File - Runs a file search from a local path for log files in folders and subfolders, then splits each line into a new line in an array looking for all occurrences of the keyword in the line and copies the entire line into a new path.&#xD;&#xA;&#xD;&#xA;Google - Runs a keyword search on the google.com website&#xD;&#xA;&#xD;&#xA;YouTube - Runs a search on Youtube.com&#xD;&#xA;&#xD;&#xA;Bing for Sterling - Runs a work webpage search with the keyword on the company site " DisplayName="AuditSearchBot" sap:VirtualizedContainerService.HintSize="842,3122" sap2010:WorkflowViewState.IdRef="Sequence_22">
+  <Sequence sap2010:Annotation.AnnotationText="This is a bot that runs a search based on an inputted keyword from the user.&#xA;It lets the user choose a search medium:&#xA;File - Runs a file search from a local path for log files in folders and subfolders, then splits each line into a new line in an array looking for all occurrences of the keyword in the line and copies the entire line into a new path.&#xA;&#xA;Google - Runs a keyword search on the google.com website&#xA;&#xA;YouTube - Runs a search on Youtube.com&#xA;&#xA;Bing for Sterling - Runs a work webpage search with the keyword on the company site " DisplayName="AuditSearchBot" sap:VirtualizedContainerService.HintSize="842,3122" sap2010:WorkflowViewState.IdRef="Sequence_22">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="repeatSearch" />
     </Sequence.Variables>
@@ -90,7 +91,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box - Welcome" sap:VirtualizedContainerService.HintSize="800,59" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Welcome to the Audit Search Bot!&quot;+vbCrLf+&#xD;&#xA;&quot;This is a bot that runs a search based on an inputted keyword from the user. It lets the user choose a search medium:&quot;+vbCrLf+&#xD;&#xA;&quot;File - Runs a file search From a local path For log files In folders And subfolders, Then splits Each line Into a New line In an array looking For all occurrences Of the keyword In the line And copies the entire line Into a New path.&quot;+vbCrLf+&#xD;&#xA;&quot;Google - Runs a keyword search on the google.com website&quot; + vbCrLf+&#xD;&#xA;&quot;YouTube - Runs a search on Youtube.com&quot; +vbCrLf+&#xD;&#xA;&quot;Bing for Sterling - Runs a work webpage search with the keyword on the company site.&quot;]">
+    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box - Welcome" sap:VirtualizedContainerService.HintSize="800,59" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Welcome to the Audit Search Bot!&quot;+vbCrLf+&#xA;&quot;This is a bot that runs a search based on an inputted keyword from the user. It lets the user choose a search medium:&quot;+vbCrLf+&#xA;&quot;File - Runs a file search From a local path For log files In folders And subfolders, Then splits Each line Into a New line In an array looking For all occurrences Of the keyword In the line And copies the entire line Into a New path.&quot;+vbCrLf+&#xA;&quot;Google - Runs a keyword search on the google.com website&quot; + vbCrLf+&#xA;&quot;YouTube - Runs a search on Youtube.com&quot; +vbCrLf+&#xA;&quot;Bing for Sterling - Runs a work webpage search with the keyword on the company site.&quot;]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -102,7 +103,7 @@
       <ui:InterruptibleDoWhile.Body>
         <Sequence DisplayName="Body - Do While" sap:VirtualizedContainerService.HintSize="764,2604" sap2010:WorkflowViewState.IdRef="Sequence_34">
           <Sequence.Variables>
-            <Variable x:TypeArguments="x:String" Name="searchOption" />
+            <Variable x:TypeArguments="x:String" Name="searchArea" />
             <Variable x:TypeArguments="x:String" Name="keyword" />
           </Sequence.Variables>
           <sap:WorkflowViewStateService.ViewState>
@@ -112,7 +113,7 @@
           </sap:WorkflowViewStateService.ViewState>
           <ui:InputDialog Options="{x:Null}" DisplayName="Input Dialog - Search Option" sap:VirtualizedContainerService.HintSize="722,291" sap2010:WorkflowViewState.IdRef="InputDialog_5" IsPassword="False" Label="Where would you like to search through?" OptionsString="File;Bing for Sterling;Google;YouTube;Twitter" Title="Welcome to the Audit Search Bot">
             <ui:InputDialog.Result>
-              <OutArgument x:TypeArguments="x:String">[searchOption]</OutArgument>
+              <OutArgument x:TypeArguments="x:String">[searchArea]</OutArgument>
             </ui:InputDialog.Result>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -132,7 +133,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:InputDialog>
-          <Switch x:TypeArguments="x:String" DisplayName="Switch - searchOption " Expression="[searchOption]" sap:VirtualizedContainerService.HintSize="722,1572" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+          <Switch x:TypeArguments="x:String" DisplayName="Switch - searchOption " Expression="[searchArea]" sap:VirtualizedContainerService.HintSize="722,1572" sap2010:WorkflowViewState.IdRef="Switch`1_1">
             <Sequence x:Key="File" sap:VirtualizedContainerService.HintSize="682,1323" sap2010:WorkflowViewState.IdRef="Sequence_26">
               <Sequence.Variables>
                 <Variable x:TypeArguments="x:String" Name="Path" />
@@ -255,7 +256,7 @@
                 </uix:NApplicationCard.TargetApp>
               </uix:NApplicationCard>
             </Sequence>
-            <Sequence x:Key="YouTube" DisplayName="Sequence - YouTube" sap:VirtualizedContainerService.HintSize="476,878" sap2010:WorkflowViewState.IdRef="Sequence_30">
+            <Sequence x:Key="YouTube" DisplayName="Sequence - YouTube" sap:VirtualizedContainerService.HintSize="476,838" sap2010:WorkflowViewState.IdRef="Sequence_30">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -294,7 +295,7 @@
                 </uix:NApplicationCard.TargetApp>
               </uix:NApplicationCard>
             </Sequence>
-            <Sequence x:Key="Bing for Sterling" DisplayName="Sequence - Bing" sap:VirtualizedContainerService.HintSize="476,1084" sap2010:WorkflowViewState.IdRef="Sequence_33">
+            <Sequence x:Key="Bing for Sterling" DisplayName="Sequence - Bing" sap:VirtualizedContainerService.HintSize="476,1044" sap2010:WorkflowViewState.IdRef="Sequence_33">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
